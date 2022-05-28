@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">  
+    <title>Sign In</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="page-container" class="side-trans-enabled">
+
+        <!-- Main Container -->
+        <main id="main-container">
+
+            <!-- Page Content -->
+            <div class="hero-static d-flex align-items-center">
+                <div class="w-100">
+                    <!-- Sign In Section -->
+                    <div class="content content-full bg-white">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-6 col-xl-4 py-4">
+                                <!-- Header -->
+                                <div class="text-center">
+                                    <p class="mb-2">
+                                        <i class="fa fa-2x fa-circle-notch text-primary"></i>
+                                    </p>
+                                    <h1 class="h4 mb-1">
+                                        Sign In
+                                    </h1>
+
+                                </div>
+                                <!-- END Header -->
+
+                                <!-- Sign In Form -->
+                                <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js) -->
+                                <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                {% if error %}
+                                    <div class="alert alert-danger alert-dismissable" role="alert">
+                                        <p class="mb-0">{{ error }}</p>
+                                    </div>
+                                   {% endif %}
+                                <form class="js-validation-signin"method="POST"
+                                    novalidate="novalidate">
+                                    {% csrf_token %}
+                                    <div class="py-3">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-lg form-control-alt"
+                                                id="login-username" name="username" placeholder="Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-lg form-control-alt"
+                                                id="login-password" name="password" placeholder="Password">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-0">
+                                        <div class="col-md-6 col-xl-5">
+                                            <button type="submit" class="btn btn-block btn-primary">
+                                                Sign In
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Sign In Form -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Sign In Section -->
+
+                    <!-- Sign Up Button -->
+                   <a href="{% url 'signup' %}">
+                       <div class="col-md-auto col-xl-auto">
+                           <div class="form-group row justify-content-around mb-10">
+                       <button class="btn btn-block btn-primary">Sign Up</button>
+                   </a>
+                    <!-- Sign Up Button -->
+                </a>
+                </div>
+            </div>
+            <!-- END Page Content -->
+
+        </main>
+        <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+</body>
+
+</html>
